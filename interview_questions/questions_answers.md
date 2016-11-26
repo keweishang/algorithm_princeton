@@ -12,7 +12,7 @@
    
    We can add a int max[] array that represents the largest element in the tree. Whenever two trees got merged, we select the larger one of their max and update the max[] array. Then find(i) returns the root index of i with max[i] in logarithmic time.
 
-3. **Successor with delete**. Given a set of N integers S={0,1,...,N−1} and a sequence of requests of the following form:
+3. Question: **Successor with delete**. Given a set of N integers S={0,1,...,N−1} and a sequence of requests of the following form:
 
    Remove x from S
    Find the successor of x: the smallest y in S such that y≥x.
