@@ -1,0 +1,13 @@
+# Mac OS
+.DS_Store
+
+# Eclipse
+.classpath
+.project
+.settings
+
+# Maven
+target
+
+# Output log
+*.out
