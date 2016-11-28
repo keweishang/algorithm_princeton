@@ -1,4 +1,4 @@
-# Summary:
+# Summary
 * Union Find
   * Union 2 elements at a time. Check amongst n elements, if 2 elements are connected. 
 * Weighted Quick Union data structure implementation
