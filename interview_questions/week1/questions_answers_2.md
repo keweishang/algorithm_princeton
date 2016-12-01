@@ -1,0 +1,3 @@
+__Search in a bitonic array__. An array is bitonic if it is comprised of an increasing sequence of integers followed immediately by a decreasing sequence of integers. Write a program that, given a bitonic array of n distinct integer values, determines whether a given integer is in the array.
+
+Answer: Use a altered version of binary search to find the max in the middle. And do 2 binary searches on the left side and on the right side. Time complexity is ~ 3*ln(n), where n is the length of array.
