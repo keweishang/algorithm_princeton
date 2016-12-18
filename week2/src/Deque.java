@@ -4,9 +4,9 @@ import java.util.NoSuchElementException;
 public class Deque<Item> implements Iterable<Item> {
 
     private class Node {
-        Item value;
-        Node next;
-        Node prev;
+        private Item value;
+        private Node next;
+        private Node prev;
 
         public Node(Item value) {
             this.value = value;
@@ -16,7 +16,7 @@ public class Deque<Item> implements Iterable<Item> {
     }
 
     private class DequeIterator implements Iterator<Item> {
-        Node cur;
+        private Node cur;
 
         public DequeIterator() {
             this.cur = head;
@@ -29,7 +29,7 @@ public class Deque<Item> implements Iterable<Item> {
 
         @Override
         public Item next() {
-            if (hasNext())
+            if (!hasNext())
                 throw new NoSuchElementException(DEQUE_IS_EMPTY);
             Item res = cur.value;
             cur = cur.next;
@@ -38,8 +38,8 @@ public class Deque<Item> implements Iterable<Item> {
 
     }
 
-    private final static String NULL_NOT_PERMITTED = "Cannot add null";
-    private final static String DEQUE_IS_EMPTY = "Deque is empty";
+    private static final String NULL_NOT_PERMITTED = "Cannot add null";
+    private static final String DEQUE_IS_EMPTY = "Deque is empty";
     private int size = 0;
     private Node head = null;
     private Node tail = null;
@@ -131,7 +131,4 @@ public class Deque<Item> implements Iterable<Item> {
         return new DequeIterator();
     }
 
-    public static void main(String[] args) {
-        // unit testing
-    }
 }
