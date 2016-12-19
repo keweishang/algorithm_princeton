@@ -30,5 +30,8 @@
    * At most n calls to swap().
    * Constant extra space.
 
+   Answer:
+   
    Solution 1. Bucket sort, but need O(N) space.
+
    Solution 2. I didn't come with with this solution. http://www.geeksforgeeks.org/sort-an-array-of-0s-1s-and-2s/
