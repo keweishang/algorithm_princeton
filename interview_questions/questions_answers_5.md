@@ -2,7 +2,7 @@
 
    Answer:
 
-   Copy the left subarray of n to auxiliary array and merge the right subarray and auxiliary array into the original array.
+   Copy the left subarray of size n to auxiliary array and merge the right subarray and the auxiliary array into the original array.
 
 2. Question: __Counting inversions.__ An inversion in an array a[] is a pair of entries a[i] and a[j] such that i<j but a[i]>a[j]. Given an array, design a linearithmic algorithm to count the number of inversions.
 
