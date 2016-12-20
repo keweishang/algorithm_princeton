@@ -50,6 +50,7 @@
     * The representation of the keys. __Digital properties of keys__: we can use digit/character compares instead of key compares for numbers and strings (radix sorts).
 
 * Stability
+
   A typical application. Given a list of students, first, sort by name; then sort by section. We want students to be sorted by name within the same section after sorted by section.
 
   Not all sorts preserve __stability__.
@@ -57,7 +58,8 @@
   A __stable__ sort preserves the relative order of items with equal keys.
 
   Q. Which sorts are stable?
-  A. Insertion sort and mergesort (but not selection sort).
+
+  A. Insertion sort and mergesort (but not selection sort and quicksort).
     * __Proof. Check whether there is a long-distance exchange might move an item past some equal item.__
     * Insertion sort is stable because we never move equal items pass one another.
     * Selection sort is not stable because for [b1, b2, a] where b1 = b2, and a < b1, if we start at b1, we will exchange b1 and a, so we move an item past equal item.
