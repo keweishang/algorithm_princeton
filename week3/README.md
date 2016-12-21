@@ -68,6 +68,27 @@
 
   Note. Need to carefully check code ("less than" vs "less than or equal to").
 
+* Quicksort
+  * Basic plan
+    1. __Shuffle__ the array.
+    2. __Paritition__ so that, for some j
+      * entry a[j] is in place
+      * no larger (could be equal) entry to the left of j
+      * no smaller (could be equal) entry to the right of j
+    3. __Sort__ each piece recursively.
+  * __Quicksort vs Mergesort__
+    * Advantage over mergesort : no extra space.
+    * Worst case of # of compares is quadratic, if the array was already sorted in ascending order, but since we shuffle the array beforehand, it's highly unlikely this happens (less likely than lightning strike).
+    * Average case. Number of compres is ~1.39NlgN.
+      * 39% more compares than mergesort.
+      * _But_ faster than mergesort in practice because of less data movement. Mergesort moves data to and from an axuiliary array.
+
+* Quick-selection
+
+  Select the k-th maximum number in an array of size n.
+  * Approach 1. we could sort the array and choose the k-th item. It will take NlgN time.
+  * Approach 2. there is a O(N) time approach based on quicksort partition. `j = parition(a, lo, hi)` gives us the parition point where all elements to the left of j are no larger than a[j]. If j == k, we're done we have found k. If j > k, we search and partition on the left, if j < k, we search and partition on the right. Time = N + N/2 + ... + 1 ~ 2N.
+
 Assignments:
 * Implement a brute force algorithm to find all line segments, given an array of points
 * Implement a fast sort based algorithm to find all line segments, given an array of points
