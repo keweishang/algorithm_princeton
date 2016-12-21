@@ -68,4 +68,10 @@
 
   Note. Need to carefully check code ("less than" vs "less than or equal to").
 
+Assignments:
+* Implement a brute force algorithm to find all line segments, given an array of points
+* Implement a fast sort based algorithm to find all line segments, given an array of points
+* Spec: http://coursera.cs.princeton.edu/algs4/assignments/collinear.html
+* Checklists: http://coursera.cs.princeton.edu/algs4/checklists/collinear.html
+
 [1]: https://www.coursera.org/learn/algorithms-part1/lecture/xAltF/sorting-complexity
