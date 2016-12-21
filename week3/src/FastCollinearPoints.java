@@ -4,7 +4,13 @@ import edu.princeton.cs.algs4.StdOut;
 
 import java.util.*;
 
-
+/**
+ * A fast sort-based algorithm to find all line segments, given an array of points.
+ *
+ * <p>Time complexity : O(N^2lgN)
+ *
+ * @author kshang
+ */
 public class FastCollinearPoints {
 
     private static final int MIN_POINT = 4;
@@ -19,15 +25,13 @@ public class FastCollinearPoints {
         Arrays.sort(points);
         checkDuplicate(points);
 
-
-        Set<String> added = new HashSet<>();
         List<LineSegment> lines = new ArrayList<>();
         // Time : O(N^2lgN)
         for (Point p : points) {
             Point[] copy = points.clone();
             // sort by slope, use p as the origin
             Arrays.sort(copy, p.slopeOrder());
-            findLines(copy, p, lines, added);
+            findLines(copy, p, lines);
         }
         lineSegments = lines.toArray(new LineSegment[lines.size()]);
     }
@@ -43,34 +47,30 @@ public class FastCollinearPoints {
         return lineSegments.clone();
     }
 
-    private void findLines(Point[] copy, Point p, List<LineSegment> lines, Set<String> added) {
-        double s = p.slopeTo(copy[0]);
+    private void findLines(Point[] sortedBySlope, Point origin, List<LineSegment> res) {
+        double s = origin.slopeTo(sortedBySlope[0]);
         int count = 2;
         int left = 1;
-        for (int i = 1; i < copy.length; i++) {
-            double newSlope = p.slopeTo(copy[i]);
+        for (int i = 1; i < sortedBySlope.length; i++) {
+            double newSlope = origin.slopeTo(sortedBySlope[i]);
             if (newSlope == s) count++;
-            if (newSlope != s || i == copy.length - 1) {
-                if (count >= MIN_POINT) {
-//                    Point[] points = new Point[count];
-//                    System.arraycopy(copy, left, points, 1, count - 1);
+            if (newSlope != s || i == sortedBySlope.length - 1) {
+                if (count >= MIN_POINT && startsWithOrigin(origin, left, sortedBySlope)) {
+                    // We only add once a max-line-segment, when origin is the left-most point
                     Point[] points = new Point[2];
-                    // take the point with larger y
-                    points[1] = p.compareTo(copy[left + count - 2]) > 0 ? p : copy[left + count - 2];
-                    // take the point with smaller y
-                    points[0] = p.compareTo(copy[left]) < 0 ? p : copy[left];
-                    String lineName = Arrays.toString(points);
-                    if (!added.contains(lineName)) {
-                        // haven't added the line
-                        added.add(lineName);
-                        addLines(lines, points);
-                    }
+                    points[0] = origin;
+                    points[1] = sortedBySlope[left + count - 2];
+                    addLines(res, points);
                 }
                 s = newSlope;
                 count = 2;
                 left = i;
             }
         }
+    }
+
+    private boolean startsWithOrigin(Point origin, int left, Point[] sortedBySlope) {
+        return origin.compareTo(sortedBySlope[left]) < 0;
     }
 
     private void addLines(List<LineSegment> lines, Point[] points) {

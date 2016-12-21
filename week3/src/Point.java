@@ -12,6 +12,11 @@ import edu.princeton.cs.algs4.StdDraw;
 
 import java.util.Comparator;
 
+/**
+ * An immutable data type Point that represents a point in the plane.
+ *
+ * @author kshang
+ */
 public class Point implements Comparable<Point> {
 
     private final int x;     // x-coordinate of this point

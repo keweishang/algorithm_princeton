@@ -6,6 +6,13 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * A brute force algorithm to find all line segments, given an array of points.
+ *
+ * <p>Time complexity : O(N^4)
+ *
+ * @author kshang
+ */
 public class BruteCollinearPoints {
 
     private final LineSegment[] lineSegments;
@@ -17,7 +24,6 @@ public class BruteCollinearPoints {
         // Sort points by ascending order (order y-axis, if y-axis are equal, by x-axis)
         Arrays.sort(points);
         checkDuplicate(points);
-
 
         List<LineSegment> list = new ArrayList<>();
         for (int p = 0; p <= points.length - 4; p++)
