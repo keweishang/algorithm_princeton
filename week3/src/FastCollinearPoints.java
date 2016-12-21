@@ -20,19 +20,30 @@ public class FastCollinearPoints {
         checkDuplicate(points);
 
 
-        Set<Double> slopes = new HashSet<>();
+        Set<String> added = new HashSet<>();
         List<LineSegment> lines = new ArrayList<>();
         // Time : O(N^2lgN)
         for (Point p : points) {
             Point[] copy = points.clone();
             // sort by slope, use p as the origin
             Arrays.sort(copy, p.slopeOrder());
-            findLines(copy, p, lines, slopes);
+            findLines(copy, p, lines, added);
         }
         lineSegments = lines.toArray(new LineSegment[lines.size()]);
     }
 
-    private void findLines(Point[] copy, Point p, List<LineSegment> lines, Set<Double> slopes) {
+    // the number of line segments
+    public int numberOfSegments() {
+        return lineSegments.length;
+    }
+
+    // the line segments
+    public LineSegment[] segments() {
+        // defensive return clone of internal value
+        return lineSegments.clone();
+    }
+
+    private void findLines(Point[] copy, Point p, List<LineSegment> lines, Set<String> added) {
         double s = p.slopeTo(copy[0]);
         int count = 2;
         int left = 1;
@@ -40,13 +51,20 @@ public class FastCollinearPoints {
             double newSlope = p.slopeTo(copy[i]);
             if (newSlope == s) count++;
             if (newSlope != s || i == copy.length - 1) {
-                if (count >= MIN_POINT && !slopes.contains(s)) {
-                    // haven't added the line
-                    slopes.add(s);
-                    Point[] points = new Point[count];
-                    System.arraycopy(copy, left, points, 1, count - 1);
-                    points[0] = p;
-                    addLines(lines, points);
+                if (count >= MIN_POINT) {
+//                    Point[] points = new Point[count];
+//                    System.arraycopy(copy, left, points, 1, count - 1);
+                    Point[] points = new Point[2];
+                    // take the point with larger y
+                    points[1] = p.compareTo(copy[left + count - 2]) > 0 ? p : copy[left + count - 2];
+                    // take the point with smaller y
+                    points[0] = p.compareTo(copy[left]) < 0 ? p : copy[left];
+                    String lineName = Arrays.toString(points);
+                    if (!added.contains(lineName)) {
+                        // haven't added the line
+                        added.add(lineName);
+                        addLines(lines, points);
+                    }
                 }
                 s = newSlope;
                 count = 2;
@@ -65,17 +83,6 @@ public class FastCollinearPoints {
         for (int i = 1; i < points.length; i++) {
             if (points[i].compareTo(points[i-1]) == 0) throw new IllegalArgumentException();
         }
-    }
-
-    // the number of line segments
-    public int numberOfSegments() {
-        return lineSegments.length;
-    }
-
-    // the line segments
-    public LineSegment[] segments() {
-        // defensive return clone of internal value
-        return lineSegments.clone();
     }
 
     public static void main(String[] args) {
@@ -100,7 +107,7 @@ public class FastCollinearPoints {
         StdDraw.show();
 
         // print and draw the line segments
-        BruteCollinearPoints collinear = new BruteCollinearPoints(points);
+        FastCollinearPoints collinear = new FastCollinearPoints(points);
         for (LineSegment segment : collinear.segments()) {
             StdOut.println(segment);
             segment.draw();
