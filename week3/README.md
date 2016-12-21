@@ -77,17 +77,21 @@
       * no smaller (could be equal) entry to the right of j
     3. __Sort__ each piece recursively.
   * __Quicksort vs Mergesort__
-    * Advantage over mergesort : no extra space.
-    * Worst case of # of compares is quadratic, if the array was already sorted in ascending order, but since we shuffle the array beforehand, it's highly unlikely this happens (less likely than lightning strike).
+    * Quicksort : no extra space, faster in practice on typical inputs (not many duplicate keys, input was not already sorted), less stable and not guaranteed NlgN performance.
+    * Mergesort : more stable and guaranteed NlgN performance no matter if the inputs were sorted or have duplicate keys, extra n space for auxiliary array because merge is not in-place, slower.
+  * More about quicksort
+    * Worst case of # of compares is quadratic for quicksort, if the array was already sorted in ascending order, but since we shuffle the array beforehand, it's highly unlikely this happens (less likely than lightning strike).
     * Average case. Number of compres is ~1.39NlgN.
       * 39% more compares than mergesort.
       * _But_ faster than mergesort in practice because of less data movement. Mergesort moves data to and from an axuiliary array.
+  * Duplicate keys
+    * There is a simple to understand 3-way quicksort that has __linear runtime__ if the number of distinct keys is constant (because there are many duplicate keys, such as age, name of university as key). The basic plan is the get all items that equal to v (the partition item) in the middle and sort left part and right part afterwards.
 
-* Quick-selection
+* Quickselect
 
   Select the k-th maximum number in an array of size n.
   * Approach 1. we could sort the array and choose the k-th item. It will take NlgN time.
-  * Approach 2. there is a O(N) time approach based on quicksort partition. `j = parition(a, lo, hi)` gives us the parition point where all elements to the left of j are no larger than a[j]. If j == k, we're done we have found k. If j > k, we search and partition on the left, if j < k, we search and partition on the right. Time = N + N/2 + ... + 1 ~ 2N.
+  * Approach 2. there is a O(N) time approach based on quicksort partition. `j = partition(a, lo, hi)` gives us the parition point where all elements to the left of j are no larger than a[j]. If j == k, we're done and we have found k. If j > k, we search and partition on the left, if j < k, we search and partition on the right. Time = N + N/2 + ... + 1 ~ 2N.
 
 Assignments:
 * Implement a brute force algorithm to find all line segments, given an array of points
@@ -95,4 +99,7 @@ Assignments:
 * Spec: http://coursera.cs.princeton.edu/algs4/assignments/collinear.html
 * Checklists: http://coursera.cs.princeton.edu/algs4/checklists/collinear.html
 
+[![Sort Algorithm Table][img-1]][img-1]
+
 [1]: https://www.coursera.org/learn/algorithms-part1/lecture/xAltF/sorting-complexity
+[img-1]: coursera_resource/sort_table.png
