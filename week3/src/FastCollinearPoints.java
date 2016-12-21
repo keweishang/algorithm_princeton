@@ -40,15 +40,13 @@ public class FastCollinearPoints {
             double newSlope = p.slopeTo(copy[i]);
             if (newSlope == s) count++;
             if (newSlope != s || i == copy.length - 1) {
-                if (count >= MIN_POINT) {
-                    if (!slopes.contains(s)) {
-                        // haven't added the line
-                        slopes.add(s);
-                        Point[] points = new Point[count];
-                        System.arraycopy(copy, left, points, 1, count - 1);
-                        points[0] = p;
-                        addLines(lines, points);
-                    }
+                if (count >= MIN_POINT && !slopes.contains(s)) {
+                    // haven't added the line
+                    slopes.add(s);
+                    Point[] points = new Point[count];
+                    System.arraycopy(copy, left, points, 1, count - 1);
+                    points[0] = p;
+                    addLines(lines, points);
                 }
                 s = newSlope;
                 count = 2;
@@ -59,8 +57,7 @@ public class FastCollinearPoints {
 
     private void addLines(List<LineSegment> lines, Point[] points) {
         for (int i = 1; i < points.length; i++) {
-            LineSegment line = new LineSegment(points[i-1], points[i]);
-            lines.add(line);
+            lines.add(new LineSegment(points[i-1], points[i]));
         }
     }
 
@@ -77,6 +74,7 @@ public class FastCollinearPoints {
 
     // the line segments
     public LineSegment[] segments() {
+        // defensive return clone of internal value
         return lineSegments.clone();
     }
 

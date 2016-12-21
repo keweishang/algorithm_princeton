@@ -51,6 +51,7 @@ public class BruteCollinearPoints {
 
     // the line segments
     public LineSegment[] segments() {
+        // defensive return clone of internal value
         return lineSegments.clone();
     }
 
