@@ -77,8 +77,8 @@
       * no smaller (could be equal) entry to the right of j
     3. __Sort__ each piece recursively.
   * __Quicksort vs Mergesort__
-    * Quicksort : no extra space, faster in practice on typical inputs (not many duplicate keys, input was not already sorted), less stable and not guaranteed NlgN performance.
-    * Mergesort : more stable and guaranteed NlgN performance no matter if the inputs were sorted or have duplicate keys, extra n space for auxiliary array because merge is not in-place, slower.
+    * Quicksort : no extra space, faster in practice on typical inputs (not many duplicate keys, input was not already sorted), less stable and not guaranteed NlgN performance, not stable.
+    * Mergesort : stable, guaranteed NlgN performance no matter if the inputs were sorted or have duplicate keys, extra n space for auxiliary array because merge is not in-place, slower.
   * More about quicksort
     * Worst case of # of compares is quadratic for quicksort, if the array was already sorted in ascending order, but since we shuffle the array beforehand, it's highly unlikely this happens (less likely than lightning strike).
     * Average case. Number of compres is ~1.39NlgN.
