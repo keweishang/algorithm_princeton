@@ -22,7 +22,6 @@ public class QuicksortTest {
     @Test
     public void sortEqualItems() throws Exception {
         Integer[] items = new Integer[10];
-        // Randomly generate input items
         for (int i = 0; i < items.length; i++) {
             items[i] = 100;
         }
@@ -32,11 +31,7 @@ public class QuicksortTest {
 
     @Test
     public void sortSingleItem() throws Exception {
-        Integer[] items = new Integer[1];
-        // Randomly generate input items
-        for (int i = 0; i < items.length; i++) {
-            items[i] = 100;
-        }
+        Integer[] items = {100};
         Quicksort.sort(items);
         assertThat(items).isSorted();
     }
@@ -44,10 +39,6 @@ public class QuicksortTest {
     @Test
     public void sortEmptyArray() throws Exception {
         Integer[] items = new Integer[0];
-        // Randomly generate input items
-        for (int i = 0; i < items.length; i++) {
-            items[i] = 100;
-        }
         Quicksort.sort(items);
         assertThat(items).isSorted();
     }
