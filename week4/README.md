@@ -11,7 +11,7 @@
   * Take nodes in __level__ order.
   * No explicit links needed.
   
-  [binary heap][img-1]
+  [![binary_heap][img-1]][img-1]
 
 
 [1]: https://www.coursera.org/learn/algorithms-part1/lecture/xAltF/sorting-complexity
