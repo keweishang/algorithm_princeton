@@ -14,14 +14,14 @@
   [![binary-heap][img-1]][img-1]
 
 * Promotion in a heap: child's key becomes __larger__ key than its parent's key.
-   ```
-   private void swim(int k) {
-     while (k > 1 && less(k/2, k)) {  // k is not root and parent is smaller
-       exch(k, k/2);
-       k = k/2;
-     }
-   }
-   ```
+  ```
+  private void swim(int k) {
+    while (k > 1 && less(k/2, k)) {  // k is not root and parent is smaller
+      exch(k, k/2);
+      k = k/2;
+    }
+  }
+  ```
   Insertion in a heap: add node at end, then swim it up. Cost is O(lgN) compares.
 
 * Demotion in a heap: parent's key becomes __smaller__ than one (or both) of its children's. To eliminate the violation, we sink the parent:
