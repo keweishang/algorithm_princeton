@@ -54,6 +54,7 @@
   }
   ```
   * __Mergesort vs Quicksort vs Heapsort__
+  
   Sort | In-place (Space) | Time | Stable
   --- | --- | --- | ---
   Mergesort | no (linear extra space) | guaranteed NlgN | yes
