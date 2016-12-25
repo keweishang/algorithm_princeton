@@ -75,5 +75,11 @@ private static void exch(Object[] pq, int i, int j) {
 ```
 
 
+Assignments:
+
+Solve 8-puzzle problem using priority queue.
+Spec: http://coursera.cs.princeton.edu/algs4/assignments/8puzzle.html
+Checklists: http://coursera.cs.princeton.edu/algs4/checklists/8puzzle.html
+
 [1]: https://www.coursera.org/learn/algorithms-part1/lecture/xAltF/sorting-complexity
 [img-1]: coursera_resource/binary-heap.png
