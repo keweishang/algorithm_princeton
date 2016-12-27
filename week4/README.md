@@ -74,6 +74,19 @@ private static void exch(Object[] pq, int i, int j) {
 }
 ```
 
+* Equals design
+  * "Standard" recipe
+    1. Optimization for reference equality. `if (y == this) return true`
+    2. Check against null. `if (y == null) return false`
+    3. Check that two objects are of the same type and cast.
+    4. Compare each significant field:
+      - if field is a primitive type, use ==
+      - if field is an object, use equals()
+      - if field is an array, apply to each entry, alternatively, use `Arrays.equals(a, b)` or `Arrays.deepEqual(a, b)`, but not `a.equals(b)`
+  * Best practices
+    - No need to use calculated fields that depend on other fields.
+    - Compare fields mostly likely to differ first.
+    - Make compareTo() consistent with equals().
 
 Assignments:
 
