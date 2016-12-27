@@ -88,6 +88,9 @@ private static void exch(Object[] pq, int i, int j) {
     - Compare fields mostly likely to differ first.
     - Make compareTo() consistent with equals().
 
+* Ordered Symbol Table runtime
+[![ordered-symbol-table][img-2]][img-2]
+
 Assignments:
 
 * Solve 8-puzzle problem using priority queue.
@@ -96,3 +99,4 @@ Assignments:
 
 [1]: https://www.coursera.org/learn/algorithms-part1/lecture/xAltF/sorting-complexity
 [img-1]: coursera_resource/binary-heap.png
+[img-2]: coursera_resource/ordered-symbol-table.png
