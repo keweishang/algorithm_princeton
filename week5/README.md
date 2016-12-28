@@ -19,7 +19,7 @@
   LLRB (Left-leaning red-black BST)
     - Represent 2-3 search tree as a BST.
     - Use "internal" left-learning links as "glue" fro 3-nodes.
-    ![LLRB corres 2-3][LLRB corres 2-3]]
+    ![LLRB corres 2-3][LLRB corres 2-3]
 
   Properties. a BST such that:
     - No node has two red links connected to it.
