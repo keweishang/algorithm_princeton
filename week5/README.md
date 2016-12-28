@@ -10,7 +10,7 @@
     1. Symmetric order. Inorder traversal yields keys in ascending order.
     2. Perfect balance. Every path from root to null link has same length. 
   
-  [![2-3 search tree][2-3 search tree]
+  ![2-3 search tree][2-3 search tree]
 
   Guaranteed lgN search() and insert() operation.
 
@@ -19,7 +19,7 @@
   LLRB (Left-leaning red-black BST)
     - Represent 2-3 search tree as a BST.
     - Use "internal" left-learning links as "glue" fro 3-nodes.
-    [![LLRB corres 2-3][LLRB corres 2-3]]
+    ![LLRB corres 2-3][LLRB corres 2-3]]
 
   Properties. a BST such that:
     - No node has two red links connected to it.
@@ -34,5 +34,5 @@
 
 
 
-[2-3 search tree]: coursera_resource/2-3 search tree.png
-[LLRB corres 2-3]: coursera_resource/LLRB corres 2-3.png
+[2-3 search tree]: coursera_resource/2-3-search-tree.png
+[LLRB corres 2-3]: coursera_resource/LLRB-corres-2-3.png
