@@ -42,5 +42,9 @@
 
   A search or an insertion in a B-tree of order M with N keys requires between log M-1 N and log M/2 N probes.
 
+* 2d-tree
+   
+   A BST, in which each node's key is a point in a 2D plane. The node divides the plane into 2 half-planes horizontally (for nodes at even level) or vertically (for odd level).
+
 [2-3 search tree]: coursera_resource/2-3-search-tree.png
 [LLRB corres 2-3]: coursera_resource/LLRB-corres-2-3.png
