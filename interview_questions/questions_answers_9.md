@@ -2,7 +2,7 @@
 
    Answer: Maybe we could use only one instance of BitSet and use key to find color, if the key is integer.
 
-2. Question: Generalized queue. Design a generalized queue data type that supports all of the following operations in logarithmic time (or better) in the worst case.
+2. Question: __Generalized queue.__ Design a generalized queue data type that supports all of the following operations in logarithmic time (or better) in the worst case.
 
   - Create an empty data structure.
   - Append an item to the end of the queue.
