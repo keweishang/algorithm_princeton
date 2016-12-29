@@ -32,7 +32,15 @@
     - Right rotation. Orient a left-leaning red link to (temporarily) lean right. __Invariants__: Maintains symmetric order and perfect black balance.
     - Color flip. Recolor to split a (temporary) 4-node.
 
+* B-tree
+  
+  A generalisation of Red-black tree (which is also a 2-3 tree).
+    - At least 2 key-link pairs at root.
+    - At least M/2 key-link pairs in other nodes.
+    - External nodes (leaf nodes) contain client keys.
+    - Internal nodes contain copies of keys to guide search.
 
+  A search or an insertion in a B-tree of order M with N keys requires between log M-1 N and log M/2 N probes.
 
 [2-3 search tree]: coursera_resource/2-3-search-tree.png
 [LLRB corres 2-3]: coursera_resource/LLRB-corres-2-3.png
