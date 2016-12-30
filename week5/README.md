@@ -46,5 +46,9 @@
    
    A BST, in which each node's key is a point in a 2D plane. The node divides the plane into 2 half-planes horizontally (for nodes at even level) or vertically (for odd level).
 
+* Interval search tree
+  
+  A BST, in which each node's key is an interval (start, end). It allows lgN time search for any interval overlapping a given query interval.
+
 [2-3 search tree]: coursera_resource/2-3-search-tree.png
 [LLRB corres 2-3]: coursera_resource/LLRB-corres-2-3.png
