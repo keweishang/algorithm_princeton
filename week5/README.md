@@ -50,5 +50,11 @@
   
   A BST, in which each node's key is an interval (start, end). It allows lgN time search for any interval overlapping a given query interval.
 
+Assignments:
+* Brute-force implementation of a data structure that supports range() and nearest() operations with O(n^2) run time.
+* 2d-tree implementation that supports range() and nearest() operations with O(nlgn) run time.
+* Spec: http://coursera.cs.princeton.edu/algs4/assignments/kdtree.html
+* Checklists: http://coursera.cs.princeton.edu/algs4/checklists/kdtree.html
+
 [2-3 search tree]: coursera_resource/2-3-search-tree.png
 [LLRB corres 2-3]: coursera_resource/LLRB-corres-2-3.png
